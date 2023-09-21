@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/hello', function () {
+    return "Hellow Word, Good Evening";
+});
+
+// alternative dengan controller
+// $route = new Route();
+// $route->get()
+Route::get('/movie', [MovieController::class, 'index']);
+
+Route::get('/movie-2', [MovieController::class, 'show']);

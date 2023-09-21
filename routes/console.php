@@ -16,4 +16,9 @@ use Illuminate\Support\Facades\Artisan;
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+})->purpose('Display an phpspiring quote');
+
+Artisan::command('hapus', function () {
+    $this->comment("menghapus data");
+    
+})->purpose('Display an phpspiring quote');
