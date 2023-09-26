@@ -6,12 +6,30 @@ use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
-    public function index() {
-        return "Hello world, this is from movie";
+    public function index() 
+    {
+        return "<b>Hello world, this is from movie update</b>";
     }
 
-    public function show()
+    public function show($id)
     {
-        return view('movie');
+        echo "<h1>{$id}</h1><br>";
+
+        // get movie base on on
+        // select * from movie where id = $id;
+
+        $movie = [
+            'title' => '<script>alert("i get your cookies")</script>',
+            'synopsis' => 'Penyihir sakti',
+            'rating' => 4.5
+        ];
+
+        // return view('movie', ['movie' => $movie]); // cara pertama
+        return view('movie', compact('movie'));
+    }
+
+    public function comment($movie, $comment)
+    {
+        return "{$movie} with coment id {$comment}";
     }
 }
