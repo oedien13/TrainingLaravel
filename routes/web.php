@@ -14,17 +14,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// $route = new Route();
+// $route->get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello', function () {
+Route::get('/hello', function (){
     return "Hellow Word, Good Evening";
+});
+
+route::get('/user', function() {
+    $user = ['name' => 'Anton', 'gender' => 'male'];
+    
+    return $user['name'];
 });
 
 // alternative dengan controller
 // $route = new Route();
 // $route->get()
-Route::get('/movie', [MovieController::class, 'index']);
+// Route::get('/movie', [MovieController::class, 'index']);
 
-Route::get('/movie-2', [MovieController::class, 'show']);
+Route::get('/movie/{id}', [MovieController::class, 'show']);
+
+Route::get('/movie/{movie}/comments/{comments}', [MovieController::class, 'comment']);
