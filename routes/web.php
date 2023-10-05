@@ -38,6 +38,7 @@ route::get('/user', function() {
 // $route->get()
 // Route::get('/movie', [MovieController::class, 'index']);
 
-Route::get('/movie/{id}', [MovieController::class, 'show']);
+Route::get('/movie', [MovieController::class, 'index'])->name('movie.index');
+Route::get('/movie/{id}', [MovieController::class, 'show'])->name('movie.show');
 
-Route::get('/movie/{movie}/comments/{comments}', [MovieController::class, 'comment']);
+// Route::get('/movie/{movie}/comments/{comments}', [MovieController::class, 'comment']);
